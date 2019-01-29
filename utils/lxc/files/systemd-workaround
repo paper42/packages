@@ -1,0 +1,4 @@
+#!/bin/sh
+[ -d /sys/fs/cgroup/systemd ] || {
+mkdir /sys/fs/cgroup/systemd && mount -t cgroup -o none,name=systemd systemd /sys/fs/cgroup/systemd/
+}

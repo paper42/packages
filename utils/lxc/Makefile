@@ -211,6 +211,7 @@ define Package/lxc-hooks/install
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/share/lxc/hooks/* \
 		$(1)/usr/share/lxc/hooks/
+	$(INSTALL_BIN) ./files/systemd-workaround $(1)/usr/share/lxc/hooks/
 endef
 
 define Package/lxc-templates/install
