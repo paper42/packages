@@ -1,0 +1,8 @@
+fastcgi.server += ( ".php" =>
+        ((
+                "socket" => "/var/run/php7-fpm.sock",
+                "broken-scriptfilename" => "enable",
+                "fix-root-scriptname" => "enable"
+        ))
+)
+

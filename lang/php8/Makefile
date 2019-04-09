@@ -540,6 +540,9 @@ define Package/php8-fpm/install
 
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/php8-fpm.init $(1)/etc/init.d/php8-fpm
+
+	$(INSTALL_DIR) $(1)/etc/lighttpd/conf.d/
+	$(INSTALL_DATA) ./files/php-fpm.lighttpd $(1)/etc/lighttpd/conf.d/30-php-fpm.load
 endef
 
 define Package/php8-fpm/conffiles
