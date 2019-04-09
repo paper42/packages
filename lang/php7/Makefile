@@ -599,6 +599,7 @@ define BuildModule
 	$(INSTALL_DIR) $$(1)/usr/lib/php
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/modules/$(subst -,_,$(1)).so $$(1)/usr/lib/php/
 	$(INSTALL_DIR) $$(1)/etc/php7
+	[ \! -f ./files/$(subst -,_,$(1)).ini ] || cp ./files/$(subst -,_,$(1)).ini $$(1)/etc/php7/99_$(subst -,_,$(1)).ini
       ifeq ($(5),zend)
 	echo "zend_extension=/usr/lib/php/$(subst -,_,$(1)).so" > $$(1)/etc/php7/$(if $(4),$(4),20)_$(subst -,_,$(1)).ini
       else
