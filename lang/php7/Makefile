@@ -524,6 +524,9 @@ define Package/php7-fpm/install
 
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/php7-fpm.init $(1)/etc/init.d/php7-fpm
+
+	$(INSTALL_DIR) $(1)/etc/lighttpd/conf.d/
+	$(INSTALL_DATA) ./files/php-fpm.lighttpd $(1)/etc/lighttpd/conf.d/30-php-fpm.conf
 endef
 
 define Package/php7-fpm/conffiles
