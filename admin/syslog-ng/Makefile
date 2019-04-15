@@ -33,7 +33,7 @@ define Package/syslog-ng
   CATEGORY:=Administration
   TITLE:=A powerful syslog daemon
   URL:=https://www.syslog-ng.com/products/open-source-log-management/
-  DEPENDS:=+libpcre +glib2 +libopenssl +libpthread +librt +zlib +libdbi +libjson-c +libcurl +libuuid
+  DEPENDS:=+libpcre +glib2 +libopenssl +libpthread +librt +zlib +libdbi +libjson-c +libcurl +libuuid +logrotate
 endef
 
 define Package/syslog-ng/description
@@ -95,6 +95,9 @@ define Package/syslog-ng/install
 
 	$(INSTALL_DIR) $(1)/sbin
 	$(INSTALL_BIN) ./files/logread $(1)/sbin
+
+	$(INSTALL_DIR) $(1)/etc/logrotate.d
+	$(INSTALL_DATA) ./files/logrotate.conf $(1)/etc/logrotate.d/syslog-ng.conf
 
 	$(INSTALL_DIR) $(1)/usr/share/syslog-ng/include/
 	$(CP) -r ./files/scl $(1)/usr/share/syslog-ng/include/
