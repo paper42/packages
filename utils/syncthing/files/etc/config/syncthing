@@ -10,7 +10,7 @@ config syncthing 'syncthing'
 	#   be readable/writable by the user specified in
 	#   'option user'.
 	# Consult syslog if things go wrong.
-	option home '/etc/syncthing'
+	option home '/srv/syncthing'
 
 	# Changes to "niceness"/macprocs are not picked up by "reload_config"
 	#   nor by "restart": the service has to be stopped/started

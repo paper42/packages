@@ -26,7 +26,7 @@ start_service() {
 
   config_get user syncthing user 'root'
   config_get gui_address syncthing gui_address "http://127.0.0.1:8384"
-  config_get home syncthing home "/etc/syncthing"
+  config_get home syncthing home "/srv/syncthing"
 
   # For backwards compatibility
   IDX_DB=$(readlink -n "$home"/index-v0.14.0.db)
