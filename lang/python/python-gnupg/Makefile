@@ -26,7 +26,7 @@ define Package/python3-gnupg
   SUBMENU:=Python
   TITLE:=A wrapper for GnuPG
   URL:=https://docs.red-dove.com/python-gnupg/
-  DEPENDS:=+gnupg +python3-light +python3-logging
+  DEPENDS:=+gnupg2 +python3-light +python3-logging
 endef
 
 define Package/python3-gnupg/description
