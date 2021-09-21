@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shadow
-PKG_VERSION:=4.8.1
-PKG_RELEASE:=3
+PKG_VERSION:=4.9
+PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
-PKG_SOURCE_URL:=https://github.com/shadow-maint/shadow/releases/download/$(PKG_VERSION)
-PKG_HASH:=a3ad4630bdc41372f02a647278a8c3514844295d36eefe68ece6c3a641c1ae62
+PKG_SOURCE_URL:=https://github.com/shadow-maint/shadow/releases/download/v$(PKG_VERSION)
+PKG_HASH:=feec1f2ce9c1b62798afd35a7d1b04cefdfa3a0a30ff3e75d6965ba8978c9144
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=BSD-3-Clause
