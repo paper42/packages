@@ -36,7 +36,8 @@ define Package/easycwmp/config
 endef
 
 TARGET_CFLAGS += \
-	-D_GNU_SOURCE
+        -D_GNU_SOURCE \
+        -fcommon
 
 TARGET_LDFLAGS += \
 	-Wl,-rpath-link=$(STAGING_DIR)/usr/lib
