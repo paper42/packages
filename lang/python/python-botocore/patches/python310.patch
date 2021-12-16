@@ -1,0 +1,81 @@
+From ebd12d8d539b2135db32c84b94f33319179e2eb3 Mon Sep 17 00:00:00 2001
+From: James Saryerwinnie <js@jamesls.com>
+Date: Fri, 20 Dec 2019 13:14:06 -0800
+Subject: [PATCH] Move MutableMapping import into compat.py
+
+---
+ botocore/awsrequest.py     | 7 +------
+ botocore/compat.py         | 6 ++++++
+ botocore/session.py        | 6 +-----
+ tests/unit/test_parsers.py | 7 +------
+ 4 files changed, 9 insertions(+), 17 deletions(-)
+
+diff --git a/botocore/awsrequest.py b/botocore/awsrequest.py
+index 68397a68cf..b6f68ccc32 100644
+--- a/botocore/awsrequest.py
++++ b/botocore/awsrequest.py
+@@ -25,14 +25,9 @@
+ import botocore.utils
+ from botocore.compat import six
+ from botocore.compat import HTTPHeaders, HTTPResponse, urlunsplit, urlsplit, \
+-     urlencode
++     urlencode, MutableMapping
+ from botocore.exceptions import UnseekableStreamError
+ 
+-try:
+-    from collections.abc import MutableMapping
+-except ImportError:
+-    from collections import MutableMapping
+-
+ 
+ logger = logging.getLogger(__name__)
+ 
+diff --git a/botocore/compat.py b/botocore/compat.py
+index 47e1c813aa..5dd82120fd 100644
+--- a/botocore/compat.py
++++ b/botocore/compat.py
+@@ -377,3 +377,9 @@ def _windows_shell_split(s):
+         components.append(''.join(buff))
+ 
+     return components
++
++
++try:
++    from collections.abc import MutableMapping
++except ImportError:
++    from collections import MutableMapping
+diff --git a/botocore/session.py b/botocore/session.py
+index 36db1270c3..3382658b40 100644
+--- a/botocore/session.py
++++ b/botocore/session.py
+@@ -48,11 +48,7 @@
+ from botocore import retryhandler, translate
+ from botocore import utils
+ from botocore.utils import EVENT_ALIASES
+-
+-try:
+-    from collections.abc import MutableMapping
+-except ImportError:
+-    from collections import MutableMapping
++from botocore.compat import MutableMapping
+ 
+ 
+ logger = logging.getLogger(__name__)
+diff --git a/tests/unit/test_parsers.py b/tests/unit/test_parsers.py
+index ef55451b0c..4f9af5d994 100644
+--- a/tests/unit/test_parsers.py
++++ b/tests/unit/test_parsers.py
+@@ -18,12 +18,7 @@
+ 
+ from botocore import parsers
+ from botocore import model
+-from botocore.compat import json
+-
+-try:
+-    from collections.abc import MutableMapping
+-except ImportError:
+-    from collections import MutableMapping
++from botocore.compat import json, MutableMapping
+ 
+ 
+ # HTTP responses will typically return a custom HTTP
