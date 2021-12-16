@@ -8,11 +8,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-dns
-PKG_VERSION:=1.16.0
-PKG_RELEASE:=2
+PKG_VERSION:=2.1.0
+PKG_RELEASE:=$(AUTORELEASE)
 
 PYPI_NAME:=dnspython
-PYPI_SOURCE_EXT:=zip
 PKG_HASH:=36c5e8e38d4369a08b6780b7f27d790a292b2b08eea01607865bf0936c558e01
 
 PKG_LICENSE:=ISC
@@ -28,7 +27,7 @@ define Package/python3-dns
   SECTION:=lang
   CATEGORY:=Languages
   TITLE:=dnspython
-  URL:=http://www.dnspython.org/
+  URL:=https://www.dnspython.org/
   DEPENDS:=+python3
 endef
 
