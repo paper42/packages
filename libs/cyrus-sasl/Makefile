@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cyrus-sasl
 PKG_VERSION:=2.1.27
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_MAINTAINER:=W. Michael Petullo <mike@flyn.org>
 
@@ -101,6 +101,8 @@ define Build/InstallDev
 	ln -sf libsasl2.so $(1)/usr/lib/libsasl.so
 	$(INSTALL_DIR) $(1)/usr/lib/sasl2
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/sasl2/lib*.{a,so*} $(1)/usr/lib/sasl2/
+	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/libsasl2.pc $(1)/usr/lib/pkgconfig/libsasl2.pc
 endef
 
 define Package/libsasl2/install
