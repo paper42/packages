@@ -9,7 +9,7 @@ PECL_NAME:=pecl_http
 PECL_LONGNAME:=Extended HTTP Support
 
 PKG_VERSION:=3.2.0
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 PKG_HASH:=6fb7f038365fb1f3302f1b7e7d6b55d5c422bdea36057b1efe02bbe6ad3cc01b
 
 PKG_NAME:=php7-pecl-http
@@ -56,5 +56,5 @@ CONFIGURE_ARGS+= \
 	--with-http-libidnkit-dir=no \
 	--with-http-libidnkit2-dir=no
 
-$(eval $(call PECLPackage,http,$(PECL_LONGNAME),+icu +libcurl +librt +libevent2 +PACKAGE_libidn:libidn +libidn2 +php7-mod-hash +php7-mod-iconv +php7-mod-session +php7-pecl-raphf +php7-pecl-propro,30))
+$(eval $(call PECLPackage,http,$(PECL_LONGNAME),+icu +libcurl +librt +libevent2 +PACKAGE_libidn:libidn +libidn2 +php7-mod-iconv +php7-mod-session +php7-pecl-raphf +php7-pecl-propro,30))
 $(eval $(call BuildPackage,$(PKG_NAME)))
