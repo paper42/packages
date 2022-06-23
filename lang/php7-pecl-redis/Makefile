@@ -9,7 +9,7 @@ PECL_NAME:=redis
 PECL_LONGNAME:=PHP extension for interfacing with Redis
 
 PKG_VERSION:=4.3.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 PKG_HASH:=c0f04cec349960a842b60920fb8a433656e2e494eaed6e663397d67102a51ba2
 
 PKG_NAME:=php7-pecl-redis
@@ -35,5 +35,5 @@ CONFIGURE_ARGS+= \
 	--disable-redis-igbinary \
 	--disable-redis-lzf
 
-$(eval $(call PECLPackage,$(PECL_NAME),$(PECL_LONGNAME),+php7-mod-hash +php7-mod-session,25))
+$(eval $(call PECLPackage,$(PECL_NAME),$(PECL_LONGNAME),+php7-mod-session,25))
 $(eval $(call BuildPackage,$(PKG_NAME)))
