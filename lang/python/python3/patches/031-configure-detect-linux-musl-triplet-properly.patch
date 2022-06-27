@@ -1,0 +1,32 @@
+From e48b0cd5fea3a9ce4936b8037ea81df693dd9746 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=C5=A0imon=20Bo=C5=99ek?= <simon.borek@nic.cz>
+Date: Mon, 27 Jun 2022 13:53:37 +0200
+Subject: [PATCH] configure: detect linux-musl* triplet properly
+
+---
+ configure    | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+--- a/configure
++++ b/configure
+@@ -5358,7 +5358,7 @@ EOF
+ 
+ if $CPP $CPPFLAGS conftest.c >conftest.out 2>/dev/null; then
+   PLATFORM_TRIPLET=`grep -v '^#' conftest.out | grep -v '^ *$' | tr -d ' 	'`
+-  case "$build_os" in
++  case "$host_os" in
+   linux-musl*)
+     PLATFORM_TRIPLET=`echo "$PLATFORM_TRIPLET" | sed 's/linux-gnu/linux-musl/'`
+     ;;
+--- a/configure.ac
++++ b/configure.ac
+@@ -876,7 +876,7 @@ EOF
+ 
+ if $CPP $CPPFLAGS conftest.c >conftest.out 2>/dev/null; then
+   PLATFORM_TRIPLET=`grep -v '^#' conftest.out | grep -v '^ *$' | tr -d ' 	'`
+-  case "$build_os" in
++  case "$host_os" in
+   linux-musl*)
+     PLATFORM_TRIPLET=`echo "$PLATFORM_TRIPLET" | sed 's/linux-gnu/linux-musl/'`
+     ;;
